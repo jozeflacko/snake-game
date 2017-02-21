@@ -16,7 +16,4 @@
 <p style='max-width:360px;'>
 	<h3>Screenshot</h3>
 	<img src="https://raw.githubusercontent.com/opam/JavascriptSnakeGame/master/img/screenshot.png" alt="Smiley face">
-</p>  
-<p>
-	<iframe width="560" height="315" src="https://cdn.rawgit.com/opam/JavascriptSnakeGame/2aec356c/snakegame.html"></iframe>
-</p>
+</p> 
