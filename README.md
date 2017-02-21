@@ -1,6 +1,6 @@
 # JavascriptSnakeGame
 
-<img src="https://raw.githubusercontent.com/opam/opam.github.io/master/snake/img/live.png" alt="Smiley face" >
+<img src="https://raw.githubusercontent.com/opam/opam.github.io/master/snake/img/live.png" alt="Smiley face" style='float:left; margin:0px 10px 10px 0px;'>
 <p>
 	Simple snake game written in javascript using HTML 5 elements.
 </p>
