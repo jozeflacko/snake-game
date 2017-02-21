@@ -10,4 +10,5 @@
 <p>
 	Have fun!
 </p>
-<img src="https://raw.githubusercontent.com/opam/opam.github.io/master/snake/img/snakeGamePicture.png" alt="Smiley face" >
+<img src="https://raw.githubusercontent.com/opam/JavascriptSnakeGame/master/img/snakeGamePicture.png" alt="Smiley face" >
+          
