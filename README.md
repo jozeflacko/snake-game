@@ -1,4 +1,4 @@
-# JavascriptSnakeGame
+# Javascript Snake Game
 
 <p>
 	Simple snake game written in javascript using HTML 5 elements.
