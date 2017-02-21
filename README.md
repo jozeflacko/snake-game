@@ -4,7 +4,7 @@
 	Simple snake game written in javascript using HTML 5 elements.
 </p>
 <p>
-	To try out click <a href='https://cdn.rawgit.com/opam/JavascriptSnakeGame/2aec356c/snakegame.html'>here!</a>
+	You can try out the game <a href='https://cdn.rawgit.com/opam/JavascriptSnakeGame/2aec356c/snakegame.html'>here!</a>
 </p>
 <p>
 	Snake can move in 4 directions and turn. To change his direction use keyboard keys ( up, down, left, right and space ) or tap on gamepad buttons.
