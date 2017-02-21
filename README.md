@@ -14,7 +14,7 @@
 	Have fun!
 </p>
 <p style='max-width:360px;'>
-	<img src="https://raw.githubusercontent.com/opam/JavascriptSnakeGame/master/img/sreenshot.png" alt="Smiley face">
+	<img src="https://raw.githubusercontent.com/opam/JavascriptSnakeGame/master/img/screenshot.png" alt="Smiley face">
 </p>
 
           
