@@ -530,12 +530,12 @@ $( document ).ready(function() {
 			}
 		});				
 				
-		$up.unbind().click( function(){ snakeEvent( game.snake.getDirections().up) });
-		$down.unbind().click( function(){ snakeEvent( game.snake.getDirections().down) });
-		$left.unbind().click( function(){ snakeEvent( game.snake.getDirections().left) });
-		$right.unbind().click( function(){ snakeEvent( game.snake.getDirections().right) });	
-		$turnLeft.unbind().click( function(){ snakeEvent( game.snake.getDirections().turnLeft) });
-		$turnRight.unbind().click( function(){ snakeEvent( game.snake.getDirections().turnRight) });
+		$up.unbind().on('touchstart click', function(){ snakeEvent( game.snake.getDirections().up) });
+		$down.unbind().on('touchstart click', function(){ snakeEvent( game.snake.getDirections().down) });
+		$left.unbind().on('touchstart click', function(){ snakeEvent( game.snake.getDirections().left) });
+		$right.unbind().on('touchstart click', function(){ snakeEvent( game.snake.getDirections().right) });	
+		$turnLeft.unbind().on('touchstart click', function(){ snakeEvent( game.snake.getDirections().turnLeft) });
+		$turnRight.unbind().on('touchstart click', function(){ snakeEvent( game.snake.getDirections().turnRight) });
 	
 		// direction: game.snake.getDirections().right
 		function snakeEvent( direction ){
