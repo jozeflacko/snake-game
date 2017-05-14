@@ -11,7 +11,7 @@
 	With every food snake will grow and get a little faster. If snake will have no energy it will die. When the snake will touch himself, it will also die. 
 </p>
 <p>
-	Have fun!
+	Have fun!!!
 </p>
 <p style='max-width:360px;'>
 	<h3>Screenshot</h3>
