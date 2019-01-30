@@ -1,0 +1,28 @@
+{
+  "name": "snake-game",
+  "version": "1.0.0",
+  "description": "Snake game written in JavaScript using prototypes",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/opam/snake-game.git"
+  },
+  "keywords": [
+    "snake",
+    "javascript",
+    "html"
+  ],
+  "author": "Jozef Lacko",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/opam/snake-game/issues"
+  },
+  "homepage": "snake.jozeflacko.com",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}
