@@ -17,7 +17,7 @@ You can try it out here: <a href='http://snake.jozeflacko.com'>snake.jozeflacko.
 
 ### How to play this game:
 
-Snake can move in 4 directions and turn. To change his direction use keyboard keys ( up, down, left, right and space ) or tap on gamepad buttons. With every food snake will grow and get a little faster. If snake will have no energy it will die. When the snake will touch himself, it will also die. Have fun!!!
+Snake can move in 4 directions. To change its direction use keyboard keys ( up, down, left, right and space ) or click on gamepad buttons. With every "food" snake will grow and get a little faster. If the snake will not have enough energy it will die. And also when it will touch itself, it will also die. Have fun!!!
 
 <p style='max-width:360px;'>
 <img src="https://raw.githubusercontent.com/opam/JavascriptSnakeGame/master/img/screenshot.png" alt="Smiley face">
