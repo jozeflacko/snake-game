@@ -1,0 +1,18 @@
+.cam-navigator video,
+.cam-navigator canvas {
+    position:absolute;
+    top:0px;
+    left:0px;
+    width:inherit;
+    height:inherit;
+    border: 10px inset #8bb8de;
+    margin-bottom: 10px;
+    border-radius: 132px;
+    padding:0px;
+}
+
+#realtime-video {
+    transform: rotateY(180deg);
+    -webkit-transform:rotateY(180deg); /* Safari and Chrome */
+    -moz-transform:rotateY(180deg); /* Firefox */
+}

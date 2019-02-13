@@ -11,61 +11,78 @@
 		<link rel="stylesheet" href="plugins/alertify/alertify.default.css" />		
 
 		<link rel="stylesheet" href="css/snakegame.css" >
+		<link rel="stylesheet" href="css/facetrack.css" >
+		<link rel="stylesheet" href="css/video.css" >
+		<link rel="stylesheet" href="css/main.css" >
 	</head>
 	<body>
+		<div class="container row">		
+				<div class="jl-snake-game">					
+					<h3>Snake game</h3>				
+					<div class="status-bar">&nbsp;<span id='status' style='color:red;'>&nbsp;</span></div>							
+					<canvas id="snake-canvas">Sorry but canvas does not work in your browser. Go get Chrome :)</canvas>	
+					<div class="cam-navigator">
+						<video id="realtime-video" width="320" height="240" autoplay></video>
+						<canvas id="facetrack-canvas" width="320" height="240"></canvas>
+						<input id="command" />
+					</div>	
+					<div class="snake-button-bar">	
+						<div id="snake-play-game"   class='btn btn-success' ><i class="fa fa-play" aria-hidden="true"></i></div>
+						<div id="snake-stop-game"   class='btn btn-danger  btn-disabled'  ><i class="fa fa-stop" aria-hidden="true"></i></div>
+						<div id="snake-pause-game"  class='btn btn-primary btn-disabled'  ><i class="fa fa-pause" aria-hidden="true"></i></div>
+					</div>
+					<div class='snake-turn-buttons'>
+						<div id="snake-turn-left"  class='btn btn-warning'><i class="fa fa-chevron-left" aria-hidden="true"></i></div>		
+						<div id="snake-turn-right" class='btn btn-warning'><i class="fa fa-refresh" aria-hidden="true"></i></div>		
+					</div>	
+					<div class='nb-container'>
+					<div class='nb-row'>
+						<div  id="go-up"    class='nb up'></div>
+						<div  id="go-right" class='nb right'></div>
+					</div>
+					<div class='nb-row'>
+						<div id="go-left" class='nb left'></div>
+						<div id="go-down" class='nb down'></div>
+					</div>
+					</div>	
+				</div>
+				<div class='snake-hint'>
+					<i class="jl-collapse-btn fa fa-plus-circle" data-toggle="collapse" data-target="#jl-hint-detail"></i><span class="show-more"> Hint</span>
+					<div class="responsibilities collapse" id="jl-hint-detail">			
+						<h3>
+							Simple snake game written in javascript using HTML 5 elements
+						</h3>
+						<p>
+							Snake can move in 4 directions and turn. To change his direction 
+							use keyboard keys ( up, down, left, right and space ) or tap on gamepad buttons.
+						</p>
+						<p>
+							With every food snake will grow and get a little faster. If snake will have no 
+							energy it will die. When the snake will touch himself, it will also die. 
+						</p>
+						<p>
+							Have fun!
+						</p>
+					</div>
+				</div>  
 		
-		<div class="container">	
-			<div class="jl-snake-game">				
-				<h3>Snake game</h3>				
-				<div class="status-bar">&nbsp;<span id='status' style='color:red;'>&nbsp;</span></div>				
-				<canvas id="snake-canvas">Sorry but canvas does not work in your browser. Go get Chrome :)</canvas>	
-				<div class="snake-button-bar">	
-					<div id="snake-play-game"   class='btn btn-success' ><i class="fa fa-play" aria-hidden="true"></i></div>
-					<div id="snake-stop-game"   class='btn btn-danger  btn-disabled'  ><i class="fa fa-stop" aria-hidden="true"></i></div>
-					<div id="snake-pause-game"  class='btn btn-primary btn-disabled'  ><i class="fa fa-pause" aria-hidden="true"></i></div>
-				</div>
-				<div class='snake-turn-buttons'>
-					<div id="snake-turn-left"  class='btn btn-warning'><i class="fa fa-chevron-left" aria-hidden="true"></i></div>		
-					<div id="snake-turn-right" class='btn btn-warning'><i class="fa fa-refresh" aria-hidden="true"></i></div>		
-				</div>	
-				<div class='nb-container'>
-				   <div class='nb-row'>
-					  <div  id="go-up"    class='nb up'></div>
-					  <div  id="go-right" class='nb right'></div>
-				   </div>
-				   <div class='nb-row'>
-					<div id="go-left" class='nb left'></div>
-					<div id="go-down" class='nb down'></div>
-				  </div>
-				</div>	
-			</div>
-			<div class='snake-hint'>
-				<i class="jl-collapse-btn fa fa-plus-circle" data-toggle="collapse" data-target="#jl-hint-detail"></i><span class="show-more"> Hint</span>
-				<div class="responsibilities collapse" id="jl-hint-detail">			
-					<h3>
-						Simple snake game written in javascript using HTML 5 elements
-					</h3>
-					<p>
-						Snake can move in 4 directions and turn. To change his direction 
-						use keyboard keys ( up, down, left, right and space ) or tap on gamepad buttons.
-					</p>
-					<p>
-						With every food snake will grow and get a little faster. If snake will have no 
-						energy it will die. When the snake will touch himself, it will also die. 
-					</p>
-					<p>
-						Have fun!
-					</p>
-				</div>
-			</div>  
 		</div>
 		
 		
 		<script type="text/javascript" src="plugins/jquery-1.11.3.min.js"></script>
 		<script type="text/javascript" src="plugins/bootstrap/js/bootstrap.min.js"></script> 
 		<script type="text/javascript" src="plugins/alertify/alertify.js"></script>
+
 		<script type='text/javascript' src='plugins/fastclick/fastclick.js'></script>
+		<script type="text/javascript" src="plugins/facetrack/tracking-min.js"></script>
+		<script type="text/javascript" src="plugins/facetrack/data/face-min.js"></script>
+		<script type="text/javascript" src="plugins/facetrack/data/eye-min.js"></script>
+		<script type="text/javascript" src="plugins/facetrack/data/mouth-min.js"></script>
+		<script type="text/javascript" src="plugins/facetrack/data/dat-min.js"></script>
 		
 		<script type="text/javascript" src="js/snakegame.js"></script>  
+		<script type="text/javascript" src="js/facetrack.js"></script>  
+		<script type="text/javascript" src="js/video.js"></script>  
+		<script type="text/javascript" src="js/start.js"></script>  
 	</body>
 </html>

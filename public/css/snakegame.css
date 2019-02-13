@@ -34,7 +34,7 @@ body {
 	border-bottom: 0px;
 	max-width: 500px;
 }
-.container .jl-snake-game canvas {
+.container .jl-snake-game canvas#snake-canvas {
 	background: white;
 	border: 10px inset  #8bb8de;
 	width: 100%;
@@ -85,7 +85,7 @@ body {
 	position:relative;
 	border-radius:50%;
 	width: 60px;
-	4: 70px
+	height: 70px;
 	display:inline-block;
 	height: 60px;
 	border: 5px solid #eca37f;
@@ -223,11 +223,11 @@ body {
    }
 
    .container .jl-snake-game .status-bar,
-   .container .jl-snake-game canvas {
+   .container .jl-snake-game canvas#snake-canvas {
 		max-width:50%;
 		min-width:300px;
 		}
-   .container .jl-snake-game canvas {
+   .container .jl-snake-game canvas#snake-canvas {
    		
    }
    .container .jl-snake-game .nb-container{
