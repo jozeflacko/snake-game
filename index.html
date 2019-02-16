@@ -11,8 +11,6 @@
 		<link rel="stylesheet" href="plugins/alertify/alertify.default.css" />		
 
 		<link rel="stylesheet" href="css/snakegame.css" >
-		<link rel="stylesheet" href="css/facetrack.css" >
-		<link rel="stylesheet" href="css/video.css" >
 		<link rel="stylesheet" href="css/main.css" >
 	</head>
 	<body>
@@ -20,12 +18,15 @@
 				<div class="jl-snake-game">					
 					<h3>Snake game</h3>				
 					<div class="status-bar">&nbsp;<span id='status' style='color:red;'>&nbsp;</span></div>							
-					<canvas id="snake-canvas">Sorry but canvas does not work in your browser. Go get Chrome :)</canvas>	
-					<div class="cam-navigator">
-						<video id="realtime-video" width="320" height="240" autoplay></video>
-						<canvas id="facetrack-canvas" width="320" height="240"></canvas>
-						<input id="command" />
-					</div>	
+					<div class="canvases">
+						
+						<div class="cam-navigator">
+							<video id="realtime-video" width="340" height="170" autoplay></video>
+							<canvas id="facetrack-canvas" width="340" height="170"></canvas>
+							<input id="command" />
+						</div>	
+						<canvas id="snake-canvas">Sorry but canvas does not work in your browser. Go get Chrome :)</canvas>	
+					</div>
 					<div class="snake-button-bar">	
 						<div id="snake-play-game"   class='btn btn-success' ><i class="fa fa-play" aria-hidden="true"></i></div>
 						<div id="snake-stop-game"   class='btn btn-danger  btn-disabled'  ><i class="fa fa-stop" aria-hidden="true"></i></div>

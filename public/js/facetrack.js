@@ -4,8 +4,8 @@ app.face.video;
 app.face.tracker;
 
 app.face.dimention = {
-    width:400,
-    height:400
+    width:340,
+    height:170
 };
 
 app.face.start = (videoId, callback) => {
@@ -28,14 +28,14 @@ app.face.start = (videoId, callback) => {
           const data = event.data; 
              
           data.forEach(function(rect) {
-              context.strokeStyle = '#a64ceb';
-
+              
               let x = canvas.width - rect.x;
               let y = rect.y;
-
+              
+              context.strokeStyle = '#9ad1ff';
               context.strokeRect(x, rect.y, rect.width - rect.x, rect.height);
               context.font = '11px Helvetica';
-              context.fillStyle = "#fff";
+              context.fillStyle = "#DDD";
 
               var command = "up"; 
               
@@ -52,8 +52,8 @@ app.face.start = (videoId, callback) => {
                 command = "down";
               }
 
-              strokeLine(canvas, 0, 0, canvas.width, 3/4 * canvas.width, 'purple');
-              strokeLine(canvas, 0, 3/4 * canvas.width, canvas.width, 0, 'orange');
+              strokeLine(canvas, 0, 0, canvas.width, app.face.dimention.height/app.face.dimention.width * canvas.width, '#DDD');
+              strokeLine(canvas, 0, app.face.dimention.height/app.face.dimention.width * canvas.width, canvas.width, 0, '#DDD');
 
               callback(command);
             });
@@ -71,11 +71,11 @@ function strokeLine(canvas, x1,y1,x2,y2, color) {
 }
 
 function isAboveLinePurple(x1,y1) {
-    var yy = 3/4 * x1;
+    var yy = app.face.dimention.height/app.face.dimention.width * x1;
     return (yy > y1);
 }
 
 function isAboveLineOrange2(x1,y1) {
-    var yy = -3/4 * x1 + 240;
+    var yy = -1 * app.face.dimention.height/app.face.dimention.width * x1 + app.face.dimention.height;
     return (yy > y1);
 }
