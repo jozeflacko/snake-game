@@ -32,7 +32,7 @@ app.face.start = (videoId, callback) => {
               let x = canvas.width - rect.x;
               let y = rect.y;
               
-              context.strokeStyle = '#9ad1ff';
+              context.strokeStyle = 'black';
               context.strokeRect(x, rect.y, rect.width - rect.x, rect.height);
               context.font = '11px Helvetica';
               context.fillStyle = "#DDD";
@@ -52,8 +52,8 @@ app.face.start = (videoId, callback) => {
                 command = "down";
               }
 
-              strokeLine(canvas, 0, 0, canvas.width, app.face.dimention.height/app.face.dimention.width * canvas.width, '#DDD');
-              strokeLine(canvas, 0, app.face.dimention.height/app.face.dimention.width * canvas.width, canvas.width, 0, '#DDD');
+              strokeLine(canvas, 0, 0, canvas.width, app.face.dimention.height/app.face.dimention.width * canvas.width, 'black');
+              strokeLine(canvas, 0, app.face.dimention.height/app.face.dimention.width * canvas.width, canvas.width, 0, 'black');
 
               callback(command);
             });
