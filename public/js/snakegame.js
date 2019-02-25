@@ -1,5 +1,8 @@
 /** Jozef Lacko 2017 Snake game */
 
+var app  = app || {};
+app.snake = {};
+
 $( document ).ready(function() {
     console.log( "snake is ready!" );
 	
@@ -457,6 +460,28 @@ $( document ).ready(function() {
 			return game.snake.direction = d;
 		}
 	};
+
+	Game.prototype.getHeadRelativePosition = () => {
+		var position = game.snake.body[0];
+		var dimention = {
+			width: game.canvas.width,
+			height: game.canvas.height
+		};
+
+		return generateRelativePosition(position.x, position.y, dimention);
+
+		function generateRelativePosition(x,y, dimention) {
+			return {
+				x: parseInt((x*100/dimention.width),10),
+				y: parseInt((y*100/dimention.height),10),
+			};
+		}
+	}
+
+	Game.prototype.getSnakeDirection = () => {
+		return game.snake.direction.name;
+	}
+
 	Game.prototype.buttonsBinding = function ( unbind ) {
 		
 		var $play = btn('snake-play-game');
@@ -557,6 +582,9 @@ $( document ).ready(function() {
 	function btn( id ){		
 			return $( document.getElementById( id ) );
 	}	
+
+
 	
 	var game = new Game();	
+	window.app.snake = game;
 });

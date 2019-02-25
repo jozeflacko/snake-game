@@ -1,5 +1,10 @@
 body {
 	padding:10px;
+	box-sizing: border-box;
+}
+
+*{
+	box-sizing: border-box;
 }
 
 .container {
@@ -26,26 +31,25 @@ body {
 	text-shadow: 0px 2px 3px rgba(255,255,255,0.5);
 }
 .container .jl-snake-game .status-bar{
-	margin-bottom: 0px;
-	background: #fffdc9;
-	padding: 5px 5px 0px 5px;
-	border-radius: 9px 9px 0px 0px;
-	border: 10px inset  #8bb8de;
+	margin-bottom: 10px;
+	background: transparent;
+	padding: 0px;
+	border-radius: 0px;
+	border: none;
 	border-bottom: 0px;
 	max-width: 500px;
 }
 .container .jl-snake-game canvas#snake-canvas {
 	background: white;
-	border: 10px inset  #8bb8de;
+	border: none;
 	width: 100%;
 	margin-bottom: 10px;
 	margin-top: 0px;
 	border-top: 0px;
-	border-radius: 0px 0px 9px 9px;
+	border-radius: 0px;
 	max-width: 500px;
 }
-.container .jl-snake-game .snake-button-bar {
-}
+.container .jl-snake-game .snake-button-bar {position: absolute;bottom: 15px;}
 .container .jl-snake-game .snake-button-bar .btn{
 	border-radius:50%;
 	overflow:hidden;
@@ -204,7 +208,7 @@ body {
      }
     .container .jl-snake-game {
 		width:100%;
-		height:100%;
+		/* height:100%; */
 		margin-top:0px;
 		min-width: 280px;
 		min-height:400px;

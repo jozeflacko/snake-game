@@ -43,8 +43,14 @@
 }
 
 .cam-navigator video {
-    opacity:.1;
+    opacity:.3;
     object-fit:cover;
+    border: 3px solid blue;
+}
+
+.cam-navigator canvas {
+    outline: 1px solid red;
+    outline-offset:-1px;
 }
 
 .cam-navigator video,
