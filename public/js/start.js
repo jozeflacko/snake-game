@@ -4,6 +4,8 @@ const ERROR = 1;
 $(document).ready(function() {
     var videoId = app.cam.start();
     app.face.start(videoId, callback);
+
+    app.snake.start();
 });
 
 function whenSnakeGoesDown(face, snake) {
@@ -33,57 +35,62 @@ function whenSnakeGoesUp(face, snake) {
     return command;
 }
 function whenSnakeGoesLeft(face, snake) {
-    var command="";
+    var go="";
 
     //if(face.x < snake.x) {
         var delta = face.y - snake.y;
         if(delta > ERROR) {
-            command='down'
+            go='down'
         } else if(delta < -1*ERROR) {
-            command='up'
+            go='up'
         }
+
+        console.log('direction right, delta is: '+delta+' command is'+ go)
     //}
-    return command;
+    return go;
 }
 function whenSnakeGoesRight(face, snake) {
-    var command="";
+    var go="";
 
     //if(face.x > snake.x) {
         var delta = face.y - snake.y;
         if(delta > ERROR) {
-            command='down'
+            go='down'
         } else if(delta < -1*ERROR) {
-            command='up'
+            go='up'
         }
+
+        //console.log('direction right, delta is: '+delta+' command is'+ command)
     //}
-    return command;
+    return go;
 }
 
 function callback(myHeadPosition) {
-    var command = '';
+    var go = '';
 
     if(app.snake.snake !== undefined) { 
         var snakeHeadPosition = app.snake.getHeadRelativePosition();
         var snakeDirection = app.snake.getSnakeDirection();
       
         if(snakeDirection === 'left') {
-            whenSnakeGoesLeft(myHeadPosition, snakeHeadPosition);
+            go = whenSnakeGoesLeft(myHeadPosition, snakeHeadPosition);
         } else if(snakeDirection === 'up') {
-            command = whenSnakeGoesUp(myHeadPosition, snakeHeadPosition);
+            go = whenSnakeGoesUp(myHeadPosition, snakeHeadPosition);
         } else if(snakeDirection === 'right') {
-            command = whenSnakeGoesRight(myHeadPosition, snakeHeadPosition);
+            go = whenSnakeGoesRight(myHeadPosition, snakeHeadPosition);
         } else if(snakeDirection === 'down') {
-            command = whenSnakeGoesDown(myHeadPosition, snakeHeadPosition);
+            go = whenSnakeGoesDown(myHeadPosition, snakeHeadPosition);
         }
         
-        changeDirectionOfASnake(command);       
+        changeDirectionOfASnake(go);       
     }
 }
 
 function changeDirectionOfASnake(command) {
     if(old_command !== command && command !== '' && command!== undefined) {
-        console.log(command);
         old_command = command;
+        
+        console.log('Changing direction to '+ command)
         $(document.getElementById('go-'+command)).click();  
     }
 }

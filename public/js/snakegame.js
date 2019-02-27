@@ -66,7 +66,7 @@ $( document ).ready(function() {
 		var pen;
 		
 		this.cookFood = function(){			
-			var border = 20;
+			var border = 50;
 			var x = _getRandom( (gameArea.minWidth  + border), (gameArea.maxWidth  - border) );
 			var y = _getRandom( (gameArea.minHeight + border), (gameArea.maxHeight - border) );
 
@@ -100,7 +100,7 @@ $( document ).ready(function() {
 	function Snake(){		
 		
 		var snake = this;
-		var speed = 450;
+		var speed = 250;
 		var length = 3;
 		
 		snake.getDirections = function(){
@@ -208,8 +208,10 @@ $( document ).ready(function() {
 		
 		// private -----------------------------
 		function _willICrash(){
+			
 			var result = false;
-			for(var i=0; i< snake.body.length; i++){
+			// count from 5 to ignore small crashes on neck
+			for(var i=5; i< snake.body.length; i++){
 				if( snake.body[i].x === newHead.x && snake.body[i].y === newHead.y){					
 					result = true;
 					break;
@@ -239,7 +241,7 @@ $( document ).ready(function() {
 		game.keepPlaying = true;
 		
 		// new playground
-		game.gameArea = { maxWidth : game.canvas.width, maxHeight : game.canvas.height, minWidth : 0, minHeight : 0, color : 'white' };				
+		game.gameArea = { maxWidth : game.canvas.width, maxHeight : game.canvas.height, minWidth : 0, minHeight : 0, color : '#ffffffd6' };				
 		
 		this.ctx.fillStyle = this.gameArea.color;
 		this.ctx.fillRect( 0, 0, this.gameArea.maxWidth , this.gameArea.maxHeight );
@@ -279,7 +281,7 @@ $( document ).ready(function() {
 			var _didICrash = game.snake.move( game.ctx, game.gameArea );	
 			
 			if ( _didICrash === true ){	
-				alertify.alert('Ups, you just r killed yourself! Your life energy was '+game.score.get());
+				alertify.alert('Ups, you just killed yourself! Your life energy was '+game.score.get());
 				game.stop();				
 				_ripImg();				
 				return;
@@ -582,8 +584,6 @@ $( document ).ready(function() {
 	function btn( id ){		
 			return $( document.getElementById( id ) );
 	}	
-
-
 	
 	var game = new Game();	
 	window.app.snake = game;
