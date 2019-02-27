@@ -37,8 +37,8 @@
 .cam-navigator,
 .cam-navigator video,
 .cam-navigator canvas {
-    width:340px !important;
-    height:170px !important;
+    width: 300px !important;
+    height: 150px !important;
     padding:0px;
 }
 
