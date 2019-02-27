@@ -241,7 +241,7 @@ $( document ).ready(function() {
 		game.keepPlaying = true;
 		
 		// new playground
-		game.gameArea = { maxWidth : game.canvas.width, maxHeight : game.canvas.height, minWidth : 0, minHeight : 0, color : '#ffffffd6' };				
+		game.gameArea = { maxWidth : game.canvas.width, maxHeight : game.canvas.height, minWidth : 0, minHeight : 0, color : 'white' };				
 		
 		this.ctx.fillStyle = this.gameArea.color;
 		this.ctx.fillRect( 0, 0, this.gameArea.maxWidth , this.gameArea.maxHeight );
