@@ -222,18 +222,14 @@ $( document ).ready(function() {
 	};	
 
 		
-	function Game( autostart ){		
+	function Game() {		
 		this.canvas = document.getElementById("snake-canvas");
-		this.ctx = this.canvas.getContext("2d");		
-		this.buttonsBinding();			
-		
+		this.ctx = this.canvas.getContext("2d");
 		this.ripImg = new Image();
 		this.ripImg.src = './img/rip.png';
-			
-		if( autostart === true )
-			this.start();
 	};
-	Game.prototype.start = function(){	
+
+	Game.prototype.start = function(onSnakeStart, onMoveCallback){	
 		
 		var game = this;
 		
@@ -255,19 +251,23 @@ $( document ).ready(function() {
 		
 		// lets have fun !
 		game.keyBindings();	
-		game.move();
+
+		
+		onSnakeStart();
+
+		game.move(onMoveCallback);
 		
 	};
-	Game.prototype.move = function(){
+	Game.prototype.move = function(onMoveCallback){
 		
 		if ( this.keepPlaying === false )
 			alertify.alert('restart game!');
-		
+
+	
 		var game = this;
 		
 		// animate 
 		game.intervalId = setInterval( _moving, game.snake.getSpeed() );
-		
 		
 		// private ---------------------------
 		function _moving(){
@@ -286,6 +286,9 @@ $( document ).ready(function() {
 				_ripImg();				
 				return;
 			}	
+
+			if(onMoveCallback)
+				onMoveCallback();
 			
 			var allEaten = game.kitchen.eatFood( game.snake.body[0] );
 			
@@ -463,7 +466,7 @@ $( document ).ready(function() {
 		}
 	};
 
-	Game.prototype.getHeadRelativePosition = () => {
+	Game.prototype.getHeadRelativePosition = function() {
 		var position = game.snake.body[0];
 		var dimention = {
 			width: game.canvas.width,
@@ -480,91 +483,29 @@ $( document ).ready(function() {
 		}
 	}
 
-	Game.prototype.getSnakeDirection = () => {
+	Game.prototype.getSnakeDirection = function() {
 		return game.snake.direction.name;
 	}
 
-	Game.prototype.buttonsBinding = function ( unbind ) {
+	Game.prototype.changeSnakeDirection = function(where) {
 		
-		var $play = btn('snake-play-game');
-		var $pause = btn('snake-pause-game');		
-		var $stop = btn('snake-stop-game');
-		var $turnRight = btn('snake-turn-right');
-		var $turnLeft = btn('snake-turn-left');
-		var $up = btn('go-up');
-		var $down = btn('go-down');
-		var $left = btn('go-left');
-		var $right = btn('go-right');
+		var game = this;		
 		
-		var c = {
-			disabled : 'btn-disabled',	
-			paused : 'game-paused',
-		};		
-		
-		if ( unbind === true ){
-			$play.unbind();
-			$pause.unbind();		
-			$stop.unbind();
-			$turnLeft.unbind();	
-			$turnRight.unbind();
-			$up.unbind();		
-			$down.unbind();
-			$left.unbind();	
-			$right.unbind();
+		switch(where) {
+			case  'left':
+				snakeEvent( game.snake.getDirections().left);
+				break;
+			case  'right':
+				snakeEvent( game.snake.getDirections().right);
+				break;
+			case  'up':
+				snakeEvent( game.snake.getDirections().up);
+				break;
+			case  'down':
+				snakeEvent( game.snake.getDirections().down);
+				break;
+		}
 
-			return;			
-		}			
-		
-		var game = this;
-		
-		$play.unbind().click( function(e){ 
-			
-			if ( ! $stop.hasClass(c.disabled) )
-				return;			
-			
-			game.start();			
-			
-			$(this).addClass(c.disabled);			
-			$pause.removeClass(c.disabled);	
-			$stop.removeClass(c.disabled);
-		});
-		$stop.unbind().click( function(){ 			
-			
-			if ( ! $play.hasClass(c.disabled) )
-				return;
-			
-			game.stop();
-			
-			$play.removeClass(c.disabled);		
-			$stop.addClass(c.disabled);				
-			$pause.addClass(c.disabled).removeClass(c.paused);
-		});
-		$pause.unbind().click( function(){ 
-			
-			if ( ! $play.hasClass(c.disabled) )
-				return;
-			
-			if ( $pause.hasClass(c.paused) ){				
-				game.resume();				
-				$pause.removeClass(c.paused);
-				$play.addClass(c.disabled);			
-				$stop.removeClass(c.disabled);				
-			} else {				
-				game.pause(); 
-				$pause.addClass(c.paused);
-				$play.addClass(c.disabled);			
-				$stop.removeClass(c.disabled);
-			}
-		});				
-				
-		$up.unbind().on('touchstart click', function(){ snakeEvent( game.snake.getDirections().up) });
-		$down.unbind().on('touchstart click', function(){ snakeEvent( game.snake.getDirections().down) });
-		$left.unbind().on('touchstart click', function(){ snakeEvent( game.snake.getDirections().left) });
-		$right.unbind().on('touchstart click', function(){ snakeEvent( game.snake.getDirections().right) });	
-		$turnLeft.unbind().on('touchstart click', function(){ snakeEvent( game.snake.getDirections().turnLeft) });
-		$turnRight.unbind().on('touchstart click', function(){ snakeEvent( game.snake.getDirections().turnRight) });
-	
-		// direction: game.snake.getDirections().right
 		function snakeEvent( direction ){
 			if ( game.snake !== undefined ){
 				e = $.Event('keydown');
@@ -572,7 +513,7 @@ $( document ).ready(function() {
 				$(document).trigger(e);
 			}	
 		};
-	};	
+	}
 	
 	function equals(obj1, obj2) {
 		function _equals(obj1, obj2) {
@@ -586,5 +527,6 @@ $( document ).ready(function() {
 	}	
 	
 	var game = new Game();	
+	
 	window.app.snake = game;
 });

@@ -1,260 +1,18 @@
-body {
-	padding:10px;
+* {
 	box-sizing: border-box;
-}
-
-*{
-	box-sizing: border-box;
-}
-
-.container {
-	padding: 0px 0px 0px 0px !important;
-}
-.container .jl-snake-game {
-    border: 1px solid #f3f3f3;
-    padding: 20px;
-    background: #9ad1ff;
-    margin: auto;
-    box-shadow: 3px 3px 10px #a7a7a7;
-    margin-top: 10px;
-    position:relative;
-    min-height: 400px;
-    overflow:hidden;
-}
-.container .jl-snake-game h3 {
-	color: #1a4471;
-	font-weight: bold;
-	font-size: 23px;
-	margin-top: 0px;
-	text-shadow: 0px 2px 3px rgba(255,255,255,0.5);
-}
-.container .jl-snake-game .status-bar{
-	margin-bottom: 10px;
-	background: transparent;
-	padding: 0px;
-	border-radius: 0px;
-	border: none;
-	border-bottom: 0px;
-	max-width: 500px;
-}
-.container .jl-snake-game canvas#snake-canvas {
-	background: white;
-	border: none;
-	width: 100%;
-	margin-bottom: 10px;
-	margin-top: 0px;
-	border-top: 0px;
-	border-radius: 0px;
-	max-width: 500px;
-}
-.container .jl-snake-game .snake-button-bar {position: absolute;bottom: 15px;}
-.container .jl-snake-game .snake-button-bar .btn{
-	border-radius:50%;
-	overflow:hidden;
-	width:40px;
-	height:40px;
-	position:relative;
-	padding:0px !Important;
-	box-shadow: 0px 0px 2px #b9b9b9;
-	border-width: 2px;
-}
-.container .jl-snake-game .snake-button-bar .btn:active {background: #6f6f6f;}
-.container .jl-snake-game .snake-button-bar .btn.btn-disabled {
-	opacity:.1;
-	background:#000000;
-	border-color:silver;	
-	cursor:none;
-}
-.container .jl-snake-game .snake-button-bar .btn i{
-	font-size: 22px;
-	line-height:40px;
-	width: 40px;
-	height: 40px;
-	position:relative;
-	left: -2px;
-	top: -1px;
-}
-.container .jl-snake-game .snake-button-bar .btn i.fa-play {
-	left: 0px;
-	top: -1px;
-}
-.container .jl-snake-game .snake-turn-buttons {
-	padding: 20px;
-	position: absolute;
-	right: 200px;
-}
-.container .jl-snake-game .snake-turn-buttons .btn {
-	position:relative;
-	border-radius:50%;
-	width: 60px;
-	height: 70px;
-	display:inline-block;
-	height: 60px;
-	border: 5px solid #eca37f;
-	line-height: 60px;
-	font-size: 30px;
-	overflow:hidden;
 	padding:0px;
-	background: #ef9163;
-	box-shadow: 0px 0px 7px #77a6ce;
-	display: none;
-}
-.container .jl-snake-game .snake-turn-buttons .btn:active {
-	background:#e27c4a;
+	margin:0px;
 }
 
-.container .jl-snake-game .snake-turn-buttons .btn i {
-	width:100%;
-	line-height: 50px;
-	position:relative;
-	font-size: 40px;
-	color: #eca37f;
-	left: -5px;
-	top: 0px;
-}
-.container .jl-snake-game .snake-turn-buttons #snake-turn-right.btn {
-    display: block;
-}
-.container .jl-snake-game .snake-turn-buttons #snake-turn-right.btn i {
-	left: 0px;
-}
-.container .snake-hint {
-	background: #ebf5fd;
-	max-width:400px;
-	margin: auto;
-	margin-top:15px;
-	padding: 15px;
-	border-radius: 6px;
-	text-align:justify;
-	color:#56728a;	
-}
-.container .snake-hint .show-more,
-.container .snake-hint .jl-collapse-btn {
-	font-size:20px;	
-}
-.container .snake-hint .jl-collapse-btn {
-	cursor:pointer;
-}
-.container .snake-hint .jl-collapse-btn:hover {
-	color:red;
-}
-
-
-
-/* joystic */
-.container .jl-snake-game .nb-container {
-  padding: 13px;
-  display: block;
-  margin-left: auto;
-  -ms-transform: rotate(45deg); /* IE 9 */
-  -webkit-transform: rotate(45deg); /* Chrome, Safari, Opera */
-  transform: rotate(45deg);
-  border: 6px solid #c4e1f9;
-  border-radius:50%;
-  background: #f9f9f9;
-  width: 190px;
-  height: 190px;
-  margin-top: 0px;
-  box-shadow: 0px 0px 10px #89b6dc;
-}
-.container .jl-snake-game .nb-container > .nb-row {
-   white-space:nowrap;
-}
-.container .jl-snake-game .nb-container > .nb-row > .nb {
-  width: 50px;
-  height: 50px;
-  margin:0px;
-  display:inline-block;
-  border: 5px solid #ffe583;  
-  margin: 12px;
-  background: #ffd94a;
-  -ms-transform: rotate(45deg); /* IE 9 */
-  -webkit-transform: rotate(45deg); /* Chrome, Safari, Opera */
-  transform: rotate(45deg);
-}
-.container .jl-snake-game .nb-container > .nb-row > .nb:active {
-	background: #f1c82d;
-}
-.container .jl-snake-game .nb-container > .nb-row > .nb.up {
-  border-radius:30px 0px 0px 30px;
-}
-.container .jl-snake-game .nb-container > .nb-row > .nb.right {
-   border-radius:30px 30px 0px 0px;
-}
-.container .jl-snake-game .nb-container > .nb-row > .nb.left {
-   border-radius: 0px 0px 30px 30px;
-}
-.container .jl-snake-game .nb-container > .nb-row > .nb.down {
-  border-radius:0px 30px 30px 0px;
-}
-/* joystic end */
-
-@media (max-width: 769px) {
-     body {
-     	width:100%;
-     	height: 100%;
-     	padding: 0px;
-     	margin: 0px !Important;
-     	position: fixed;     	
-     }
-     .container {
-     	height:100%;
-     	width:100%;
-     	padding: 10px !important;
-     	margin: 0px;
-     	min-width: 280px;
-     }
-    .container .jl-snake-game {
-		width:100%;
-		height:100%;
-		margin-top:0px;
-		min-width: 280px;
-		min-height:400px;
-	}
-}
-@media (max-width: 768px) and (orientation: landscape){
-   .container .jl-snake-game{
-   		/* max-width:initial; */
-   		/* min-width:550px; */
-   		/* width: 550px; */
-   		min-height: 270px;
-   }
-   .container .jl-snake-game  h3{
-		margin-left:140px;
-		padding-bottom:5px;
-   }
-
-   .container .jl-snake-game .status-bar,
-   .container .jl-snake-game canvas#snake-canvas {
-		max-width:50%;
-		min-width:300px;
-		}
-   .container .jl-snake-game canvas#snake-canvas {
-   		
-   }
-   .container .jl-snake-game .nb-container{
-   		position:absolute;
-   		top:55px;
-   		right: 20px;   	
-   }
-   .container .jl-snake-game .nb-container .nb {
-
-   }
-
-   .container .jl-snake-game .snake-button-bar {
-   		position:absolute;
-   		top: 0px;
-   		left: 10px;
-   		padding: 10px;
-   		border-radius: 0px;
-   }
-   .container .jl-snake-game .snake-turn-buttons {
-   		display:none;
-   }
-   .container .jl-snake-game .snake-turn-buttons .btn {
-
-
-   }
+#start-button {
+	position:fixed;
+	top:10px;
+	right:10px;
+	border:1px solid #DDD;
+	padding:15px;
+	z-index:20000;
+	background:red;
+	color:white;
 }
 
 /* for alerts */
@@ -272,4 +30,21 @@ body {
 	border-radius: 3px;
 	font-size:13px;
 	box-shadow:none;
+}
+video#realtime-video {
+    opacity:.3;
+    object-fit: fill;
+    position: fixed;
+    top:0px;
+    left:0px;
+    width: 100%;
+    height: 100%;
+    transform: rotateY(180deg);
+    -webkit-transform:rotateY(180deg); /* Safari and Chrome */
+    -moz-transform:rotateY(180deg); /* Firefox */
+}
+canvas {
+    position: fixed;
+    top:0px;
+    left:0px;
 }
