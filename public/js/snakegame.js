@@ -100,7 +100,7 @@ $( document ).ready(function() {
 	function Snake(){		
 		
 		var snake = this;
-		var speed = 250;
+		var speed = 100;
 		var length = 3;
 		
 		snake.getDirections = function(){
